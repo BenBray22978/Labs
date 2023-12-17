@@ -63,20 +63,20 @@ plt.xlabel('time step (5E-6 years/2pi)')
 plt.ylabel('Smoothed Average radial acceleration from CoM (AU/s/s)')
 plt.show()
 
-threshold = 0.5e-8  # Add your desired threshold value here
+threshold = 0.5e-8 
 
 # Define the region of interest
 start_index = 300
 end_index = 800
 
-# Find the index where the smoothed graph crosses the threshold within the specified region
+
 crossing_indices = np.where((avgrad[start_index:end_index] >= threshold))[0]
 
-# If no crossing is found, print a message
+
 if len(crossing_indices) == 0:
     print(f"No threshold crossing found within the specified region ({start_index} to {end_index})")
 else:
-    # Get the first crossing index within the region
+
     first_crossing_index = crossing_indices[0] + start_index
     print(f'Threshold Crossing Index: {first_crossing_index}')
     print(f'Threshold Crossing Time: {xaxis2[first_crossing_index]}')
